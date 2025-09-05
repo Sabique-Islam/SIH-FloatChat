@@ -1,20 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans, GeistMono } from "geist/font";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "FloatChat",
-  description: "A conversational interface for ARGO float data.",
+  title: "ARGO AI - Oceanographic Research Suite",
+  description: "Modern research-oriented interface for ARGO float data analysis and visualization",
 };
 
 export default function RootLayout({
@@ -23,9 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} style={{
+      "--font-geist-sans": GeistSans.style.fontFamily,
+      "--font-geist-mono": GeistMono.style.fontFamily,
+    } as React.CSSProperties}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="antialiased font-sans"
       >
         {children}
       </body>
