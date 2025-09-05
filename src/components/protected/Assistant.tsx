@@ -3,7 +3,7 @@ import React from 'react'
 function Assistant() {
   return (
     <div>
-      Assistant
+      Assistant.
     </div>
   )
 }
